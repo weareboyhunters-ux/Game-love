@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Love & Fun Game Hub 💖</title>
+<style>
+  body {
+    font-family: 'Comic Neue', cursive;
+    background: #ffe6f0;
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  h1 { 
+    color: #ff4da6; font-size: 3em; margin-top: 20px; 
+    text-shadow: 2px 2px 5px #ffb3d9;
+    animation: heartbeat 1s infinite;
+  }
+  @keyframes heartbeat {
+    0%,100%{transform:scale(1);}50%{transform:scale(1.3);}
+  }
+  button { 
+    padding: 12px 25px; margin: 8px; font-size: 1.2em; border-radius: 20px; 
+    border: 2px solid #ff4da6; background: #ff99cc; cursor: pointer;
+    transition: 0.2s;
+  }
+  button:hover { background: #ff66b3; transform: scale(1.1);}
+  .game { display:none; margin-top: 20px;}
+  #score { font-size:1.5em; color:#ff4da6; margin-top:10px;}
+  .heart, .sparkle {
+    position:absolute; pointer-events:none;
+  }
+  .heart { font-size: 30px; animation: float linear infinite;}
+  .sparkle { font-size:1.5em; color:#fff; text-shadow:0 0 10px #fff; animation: sparkleFade 1s forwards;}
+  @keyframes sparkleFade {0%{opacity:1;transform:scale(1);}100%{opacity:0;transform:scale(2) translateY(-50px);}}
+</style>
+</head>
+<body>
+
+<h1>💖 Love & Fun Game Hub 💖</h1>
+<div id="menu">
+  <!-- 20 Game Buttons -->
+  <button onclick="showGame('game1')">1️⃣ Catch the Hearts</button>
+  <button onclick="showGame('game2')">2️⃣ Do You Love Me Quiz</button>
+  <button onclick="showGame('game3')">3️⃣ Memory Match</button>
+  <button onclick="showGame('game4')">4️⃣ Typing Hearts</button>
+  <button onclick="showGame('game5')">5️⃣ Compliment Generator</button>
+  <button onclick="showGame('game6')">6️⃣ Heart Rain</button>
+  <button onclick="showGame('game7')">7️⃣ Reaction Test</button>
+  <button onclick="showGame('game8')">8️⃣ Emoji Puzzle</button>
+  <button onclick="showGame('game9')">9️⃣ Truth or Dare</button>
+  <button onclick="showGame('game10')">🔟 Spot the Difference</button>
+  <button onclick="showGame('game11')">11️⃣ Love Personality Quiz</button>
+  <button onclick="showGame('game12')">12️⃣ Emoji Song Guess</button>
+  <button onclick="showGame('game13')">13️⃣ Heart Explosion</button>
+  <button onclick="showGame('game14')">14️⃣ Spin the Heart Wheel</button>
+  <button onclick="showGame('game15')">15️⃣ Love Maze</button>
+  <button onclick="showGame('game16')">16️⃣ Color the Heart</button>
+  <button onclick="showGame('game17')">17️⃣ Draw Your Love</button>
+  <button onclick="showGame('game18')">18️⃣ Avoid the Thorns</button>
+  <button onclick="showGame('game19')">19️⃣ Fortune Heart</button>
+  <button onclick="showGame('game20')">20️⃣ Random Fun Button</button>
+</div>
+
+<!-- Game Containers -->
+<div id="game1" class="game">
+  <p>Catch the hearts! 💕</p>
+  <button id="loveBtn1">Generate Hearts 💖</button>
+  <p id="heartScore">Score: 0</p>
+</div>
+
+<div id="game2" class="game">
+  <p>Do You Love Me? 💌</p>
+  <div id="quizQuestion"></div>
+  <div id="quizButtons"></div>
+  <p id="quizScore">Score: 0</p>
+</div>
+
+<div id="game3" class="game">
+  <p>Memory Match! ❤️</p>
+  <div id="memoryBoard" style="display:flex; flex-wrap:wrap; justify-content:center;"></div>
+  <p id="memoryScore">Score: 0</p>
+</div>
+
+<div id="game4" class="game">
+  <p>Type the phrase quickly! ⌨️</p>
+  <p id="typingText">I ❤️ You!</p>
+  <input type="text" id="typingInput">
+  <p id="typingScore">Score: 0</p>
+</div>
+
+<div id="game5" class="game">
+  <p>Click for a cute compliment! 🌸</p>
+  <button id="complimentBtn">Give Compliment 💕</button>
+  <p id="complimentText"></p>
+</div>
+
+<!-- Placeholder games (6-20) -->
+<div id="game6" class="game"><p>Heart Rain Game Coming Soon! 🌧️❤️</p></div>
+<div id="game7" class="game"><p>Reaction Test Game Coming Soon! ⚡</p></div>
+<div id="game8" class="game"><p>Emoji Puzzle Game Coming Soon! 🧩</p></div>
+<div id="game9" class="game"><p>Truth or Dare Game Coming Soon! 😘</p></div>
+<div id="game10" class="game"><p>Spot the Difference Game Coming Soon! 🔍</p></div>
+<div id="game11" class="game"><p>Love Personality Quiz Coming Soon! 💖</p></div>
+<div id="game12" class="game"><p>Emoji Song Guess Game Coming Soon! 🎶</p></div>
+<div id="game13" class="game"><p>Heart Explosion Game Coming Soon! 💥</p></div>
+<div id="game14" class="game"><p>Spin the Heart Wheel Coming Soon! 🎡</p></div>
+<div id="game15" class="game"><p>Love Maze Coming Soon! 🌀</p></div>
+<div id="game16" class="game"><p>Color the Heart Coming Soon! 🎨</p></div>
+<div id="game17" class="game"><p>Draw Your Love Coming Soon! ✍️</p></div>
+<div id="game18" class="game"><p>Avoid the Thorns Coming Soon! 🌹</p></div>
+<div id="game19" class="game"><p>Fortune Heart Coming Soon! 🔮</p></div>
+<div id="game20" class="game"><p>Random Fun Button Coming Soon! 🎉</p></div>
+
+<script>
+// Show selected game
+function showGame(id){
+  document.querySelectorAll('.game').forEach(g=>g.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+
+/* ------------------- GAME 1: Catch the Hearts ------------------- */
+let heartScore = 0;
+const loveBtn1 = document.getElementById('loveBtn1');
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+  heart.style.top = Math.random() * (window.innerHeight - 200) + 'px';
+  heart.style.fontSize = (20 + Math.random()*30) + 'px';
+  heart.textContent = ['💖','💘','💝','💗'][Math.floor(Math.random()*4)];
+
+  const dx = (Math.random()-0.5)*2;
+  const dy = (Math.random()-0.5)*2;
+  let x = parseFloat(heart.style.left);
+  let y = parseFloat(heart.style.top);
+
+  document.body.appendChild(heart);
+
+  const move = setInterval(()=>{
+    x += dx; y += dy;
+    if(x<0 || x>window.innerWidth-50) heart.style.left = (x=Math.max(0,Math.min(x,window.innerWidth-50)))+'px';
+    if(y<0 || y>window.innerHeight-50) heart.style.top = (y=Math.max(0,Math.min(y,window.innerHeight-50)))+'px';
+    heart.style.left = x+'px'; heart.style.top = y+'px';
+  },20);
+
+  heart.addEventListener('click', (e)=>{
+    heartScore++;
+    document.getElementById('heartScore').textContent = 'Score: '+heartScore;
+    createSparkle(e.clientX,e.clientY);
+    heart.remove();
+    clearInterval(move);
+  });
+
+  setTimeout(()=>{if(heart.parentElement){heart.remove();clearInterval(move);}},20000);
+}
+
+function createSparkle(x,y){
+  const sparkle = document.createElement('div');
+  sparkle.classList.add('sparkle');
+  sparkle.style.left = x+'px';
+  sparkle.style.top = y+'px';
+  sparkle.textContent = '✨';
+  document.body.appendChild(sparkle);
+  setTimeout(()=>sparkle.remove(),1000);
+}
+
+loveBtn1.addEventListener('click', ()=>{for(let i=0;i<5;i++) createHeart();});
+
+/* ------------------- GAME 2: Quiz ------------------- */
+const quizQuestions = [
+  {q:"Do you love me?", a:["Yes! 💖","Maybe 😅","No 😢"], correct:0},
+  {q:"Would you give me a hug?", a:["Yes! 🤗","No 😢","Maybe 😅"], correct:0},
+  {q:"Do you like cute games?", a:["Yes! 💖","No 😢","Sometimes 😅"], correct:0},
+];
+let quizScore = 0;
+let currentQuiz = 0;
+
+function showQuizQuestion(){
+  if(currentQuiz >= quizQuestions.length){
+    document.getElementById('quizQuestion').textContent = "Quiz Finished! Score: "+quizScore;
+    document.getElementById('quizButtons').innerHTML = "";
+    return;
+  }
+  const q = quizQuestions[currentQuiz];
+  document.getElementById('quizQuestion').textContent = q.q;
+  const buttonsDiv = document.getElementById('quizButtons');
+  buttonsDiv.innerHTML = "";
+  q.a.forEach((ans,i)=>{
+    const btn = document.createElement('button');
+    btn.textContent = ans;
+    btn.onclick = ()=>{
+      if(i === q.correct) quizScore++;
+      document.getElementById('quizScore').textContent = "Score: "+quizScore;
+      currentQuiz++;
+      showQuizQuestion();
+    };
+    buttonsDiv.appendChild(btn);
+  });
+}
+showQuizQuestion();
+
+/* ------------------- GAME 3: Memory Match ------------------- */
+const memoryBoard = document.getElementById('memoryBoard');
+const memoryItems = ['💖','💖','💘','💘','💝','💝','💗','💗'];
+let memoryScore = 0;
+let flipped = [];
+let matched = [];
+
+function shuffle(array){return array.sort(()=>Math.random()-0.5);}
+let shuffled = shuffle(memoryItems.slice());
+memoryItems.forEach((item,i)=>{
+  const div = document.createElement('div');
+  div.textContent = "?"; div.style.fontSize="2em"; div.style.margin="10px"; div.style.width="60px"; div.style.height="60px";
+  div.style.display="flex"; div.style.justifyContent="center"; div.style.alignItems="center"; div.style.background="#ffcce6"; div.style.borderRadius="10px"; div.style.cursor="pointer";
+  div.dataset.value = shuffled[i];
+  div.onclick = ()=>{
+    if(flipped.length<2 && !flipped.includes(div) && !matched.includes(div)){
+      div.textContent = div.dataset.value; flipped.push(div);
+      if(flipped.length==2){
+        setTimeout(()=>{
+          if(flipped[0].dataset.value===flipped[1].dataset.value){
+            flipped.forEach(d=>matched.push(d));
+            memoryScore++; document.getElementById('memoryScore').textContent = 'Score: '+memoryScore;
+          } else { flipped.forEach(d=>d.textContent="?"); }
+          flipped = [];
+        },500);
+      }
+    }
+  };
+  memoryBoard.appendChild(div);
+});
+
+/* ------------------- GAME 4: Typing Hearts ------------------- */
+const typingText = document.getElementById('typingText').textContent;
+const typingInput = document.getElementById('typingInput');
+let typingScore = 0;
+typingInput.addEventListener('input', ()=>{
+  if(typingInput.value === typingText){
+    typingScore++;
+    document.getElementById('typingScore').textContent = 'Score: '+typingScore;
+    typingInput.value = '';
+    createSparkle(Math.random()*window.innerWidth, Math.random()*window.innerHeight);
+  }
+});
+
+/* ------------------- GAME 5: Compliment Generator ------------------- */
+const compliments = [
+  "You are amazing! 💖","Your smile is so cute! 😊","You light up my day! ✨",
+  "You are awesome! 🌸","Your heart is beautiful! ❤️","You are super fun! 😘"
+];
+document.getElementById('complimentBtn').addEventListener('click', ()=>{
+  const text = compliments[Math.floor(Math.random()*compliments.length)];
+  document.getElementById('complimentText').textContent = text;
+  createSparkle(Math.random()*window.innerWidth, Math.random()*window.innerHeight);
+});
+</script>
+
+</body>
+  </html>
+                                                       
